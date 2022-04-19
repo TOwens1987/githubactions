@@ -41,5 +41,5 @@ jobs:
         run: echo ${{ steps.vars.outputs.short_ref }}
 
   use_workflow:
-    uses: TOwens1987/SUPERAwesomeProject/.github/workflows/gitversionOnMain.yml@main
+    uses: TOwens1987/SUPERAwesomeProject/.github/workflows/gitVersionOnBranch.yml@main
 #test
