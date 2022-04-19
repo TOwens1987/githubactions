@@ -1,0 +1,33 @@
+mode: Mainline
+branches: 
+  main:
+    regex: (^main$)
+    tag: ""
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    is-release-branch: false
+  feature:
+    regex: ^feature?[/-]
+    tag: useBranchName
+    increment: Minor
+    source-branches: ["main"]
+#edit 1 on feature/baz
+  hotfix:
+    regex: ^hotfix[/-]
+    tag: useBranchName
+    increment: Patch
+    source-branches: ["main"]
+  bug:
+    regex: ^bug[/-]
+    tag: useBranchName
+    increment: Patch
+    source-branches: ["main"]
+assembly-versioning-scheme: MajorMinorPatch
+assembly-informational-format: '{InformationalVersion}'
+increment: Inherit
+major-version-bump-message: '\+semver:\s?(breaking|major)'
+minor-version-bump-message: '\+semver:\s?(feature|minor)'
+patch-version-bump-message: '\+semver:\s?(fix|patch)'
+ignore:
+  sha: []
+merge-message-formats: {}

@@ -4,7 +4,7 @@ name: use POC workflow
 
 # Controls when the workflow will run
 on:
-  workflow_dispatch:
+  repository_dispatch:
   push:
     branches:
         #push on main not allowed cus its protected
