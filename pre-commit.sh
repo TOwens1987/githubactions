@@ -9,7 +9,7 @@ sed -i.bak -e "1s/$/[+semver: minor] /" $1
 elif [[ $BRANCH_NAME =~ patch|bug|hotfix ]]; then
 sed -i.bak -e "1s/$/[+semver: patch] /" $1
 else
-        echo "Aborting commit due to empty commit message."
+        echo "Aborting commit due to improper commit message structure."
         exit 1
 fi
 EOF
