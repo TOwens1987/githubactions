@@ -30,38 +30,3 @@ for commit in $commits; do
         exit 1
     fi
 done
-/home/git/githubactions/.git/hooks # cat pre-receive
-#!/bin/bash
-
-# regexp sample to validate commit messages
-COMMIT_MSG_PATTERN="semver"
-
-read oldrev newrev refname
-echo "Old revision: $oldrev"
-echo "New revision: $newrev"
-echo "Reference name: $refname"
-
-# list of commits to validate
-if echo "$oldrev" | grep -Eq '^0+$'; then
-    # list everything reachable from $newrev but not any heads
-    commits=$(git rev-list $(git for-each-ref --format='%(refname)' refs/heads/* | sed 's/^/\^/') "$newrev")
-
-    # or shorter version that also get list of revisions reachable from $newrev but not from any branche
-   #commits=$(git rev-list $newrev --not --branches=*)
-else
-    commits=$(git rev-list ${oldrev}..${newrev})
-fi
-
-# Iterate over all the commits
-for commit in $commits; do
-  #echo "commit=$commit"
-  MSG=$(git cat-file commit "${commit}" | sed '1,/^$/d')
-# if the regex finds no match the validation fails
-    if echo "$MSG" | grep -qE "semver" ;then
-        echo "Validation correct!"
-    else
-        echo "Validation failed!"
-        echo "Your commit message must match the pattern '$COMMIT_MSG_PATTERN'"
-        exit 1
-    fi
-done
