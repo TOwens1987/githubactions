@@ -1,0 +1,28 @@
+name: 'Commit Message Check'
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+  push:
+    branches:
+      - main
+
+jobs:
+  check-commit-message:
+    name: Check Commit Message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Commit Type
+        if: "!contains(github.event.head_commit.message, '():'"
+        steps:
+          - name : Fail Commit Message Check
+            error: 'Your commit message has to contain similar syntax "fix():" or "feat():".'
