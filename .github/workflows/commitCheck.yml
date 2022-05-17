@@ -1,23 +1,11 @@
-name: 'Commit Message Check'
-on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
+name: Commit Message Check
+on: push
 
 jobs:
-  check-commit-message:
-    if: "contains(github.event.head_commit.message, '():')"
-    name: Check Commit Message
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check Commit Type
-        run: true
+ test:
+   runs-on: [ ubuntu-latest ]
+   steps:
+     - name: Commit Message Check
+       if: contains(github.event.head_commit.message, '():')
+       run: |
+         echo 'Verifying Commit Message ${github.event.head_commit.message}!'
