@@ -22,8 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Commit Type
-        if: "!contains(github.event.head_commit.message, '():'"
+        if: "contains(github.event.head_commit.message, '():'"
         steps:
           - name : Fail Commit Message Check
-            run: exit 1
+            run: true
             error: 'Your commit message has to contain similar syntax "fix():" or "feat():".'
