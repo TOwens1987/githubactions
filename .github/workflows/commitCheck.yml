@@ -12,9 +12,6 @@ on:
       - edited
       - reopened
       - synchronize
-  push:
-    branches:
-      - main
 
 jobs:
   verify-commit-message:
@@ -24,11 +21,3 @@ jobs:
     steps:
       - name: Check Commit Type
         run: true
-  reject-commit-message:
-    if: "!contains(github.event.head_commit.message, '():')"
-    name: Reject Commit Message
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check Commit Type
-        run: exit 1
-#test
