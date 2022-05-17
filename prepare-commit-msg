@@ -1,0 +1,20 @@
+#!/bin/sh
+#edit feature/foo1 3
+NAME= $(git branch | grep '*' | sed 's/* //')
+TEXT= $(cat "$1" | sed '/^#.*/d')
+if [ -n "$TEXT" ]; then
+        #echo "$NAME"': '$(cat "$1" | sed '/^#.*/d') > "$1"
+        #NAME=$(git branch | grep '*' | sed 's/* //')
+        #echo $(cat "$1") "$NAME" > "$1"
+        #echo  $(cat "$1") "$NAME" > "$1"
+        #if [ -n "$DESCRIPTION" ] 
+        if [[ $NAME =~ feature ]]; then
+                echo  $(cat "$1") "+semver:minor" > "$1"
+        fi
+        if [[ $NAME =~ patch|bug|hotfix ]]; then
+                echo  $(cat "$1") "+semver:patch" > "$1"
+        fi
+else
+        echo "Aborting commit due to empty commit message."
+        exit 1
+fi

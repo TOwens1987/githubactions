@@ -1,4 +1,4 @@
-#!C:\Program Files\Git\bin\sh.exe
+#!/bin/sh
 
 cat > .git/hooks/prepare-commit-msg <<- "EOF"
 #!C:\Program Files\Git\bin\sh.exe
