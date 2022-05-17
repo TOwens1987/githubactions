@@ -23,5 +23,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Commit Type
-          run: true
+        run: true
 
