@@ -12,9 +12,6 @@ on:
       - edited
       - reopened
       - synchronize
-  push:
-    branches:
-      - main
 
 jobs:
   verify-commit-message:
@@ -31,4 +28,3 @@ jobs:
     steps:
       - name: Check Commit Type
         run: exit 1
-#test
