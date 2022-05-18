@@ -1,0 +1,15 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Remote Commit Check workflow
+
+# Controls when the workflow will run
+on:
+  repository_dispatch:
+  push:
+    branches:
+      - "master"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  use_workflow:
+    uses: Towens1987/GitVersioning/.github/workflows/commitCheck.yml@main
