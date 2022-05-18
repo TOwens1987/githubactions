@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Commit Type
-          uses: gsactions/commit-message-checker@v1
-          with:
-            pattern: '(feat\(\):)|(fix\(\)):|(patch\(\)):'
-            flags: 'gm'
-            error: 'Your first line has to contain a commit type like "feat(): or fix():".'
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: '(feat\(\):)|(fix\(\)):|(patch\(\)):'
+          flags: 'gm'
+          error: 'Your first line has to contain a commit type like "feat(): or fix():".'
