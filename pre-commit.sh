@@ -11,10 +11,6 @@ elif [ "$BRANCH_NAME" = "patch/" ] || [ "$BRANCH_NAME" = "hotfix/" ] || [ "$BRAN
 sed -i.bak -e "1s/^/fix(): /" $1
 elif [ "$BRANCH_NAME" = "breaking/" ]; then
 sed -i.bak -e "1s/^/perf(): /" $1
-# Append Breaking Change: to performance commit message
-commitMsgFile = $1
-existingMsg = `cat $commitMsgFile`
-echo "$existingMsg BREAKING CHANGE: " > $1
 else
         echo "Aborting commit due to improper commit message structure."
         exit 1
