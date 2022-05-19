@@ -9,6 +9,8 @@ if [ "$BRANCH_NAME" = "feature/" ]; then
 sed -i.bak -e "1s/^/feat(): /" $1
 elif [ "$BRANCH_NAME" = "patch/" ] || [ "$BRANCH_NAME" = "hotfix/" ] || [ "$BRANCH_NAME" = "bug/" ]; then
 sed -i.bak -e "1s/^/fix(): /" $1
+elif [ "$BRANCH_NAME" = "breaking/" ]; then
+sed -i.bak -e "1s/^/perf(): /" $1
 else
         echo "Aborting commit due to improper commit message structure."
         exit 1
