@@ -4,25 +4,19 @@
     "config:base"
   ],
 
-  "hostRules": [
-    {
-      "matchHost": "api.github.com",
-      "maxRequestsPerSecond": 2
-    }
-  ],
   "terragrunt": {
     "fileMatch": ["^terragrunt/.*\\.hcl$"]
   },
 
   "regexManagers": [
-  {
-    "fileMatch": ["terragrunt.hcl$"],
-    "matchStringsStrategy": "any",
-    "matchStrings": [
-      "revision = \"(?<currentValue>.*?\""
+    {
+      "description": "Update custom tag",
+      "fileMatch": [".hcl$"],
+      "matchStrings": [
+        "revision = \"(?<currentValue>.*?)\""
       ],
-      "depNameTemplate": "gruntwork-io/terragrunt",
-      "datasourceTemplate": "github-tags"
+      "depNameTemplate": "TOwens1987/GitVersioning",
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
