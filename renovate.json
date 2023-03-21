@@ -13,10 +13,9 @@
       "description": "Update custom tag",
       "fileMatch": [".hcl$"],
       "matchStrings": [
-        "revision = \"(?<currentValue>.*?)\""
+        "revision = \"(?<currentValue>.*?)\" # (?<datasource>.*?)/(?<depName>.*?)\\s"
       ],
       "depNameTemplate": "TOwens1987/GitVersioning",
-      "autoReplaceStringTemplate": "revision = {{{newValue}}}",
       "datasourceTemplate": "github-releases"
     }
   ]
