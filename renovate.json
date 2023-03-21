@@ -16,6 +16,7 @@
         "revision = \"(?<currentValue>.*?)\""
       ],
       "depNameTemplate": "TOwens1987/GitVersioning",
+      "autoReplaceStringTemplate": "revision = {{{newValue}}}",
       "datasourceTemplate": "github-releases"
     }
   ]
