@@ -3,11 +3,7 @@
   "extends": [
     "config:base"
   ],
-
-  "terragrunt": {
-    "fileMatch": ["terragrunt.hcl$"],
-  },
-
+  
   "regexManagers": [
     {
       "description": "Update custom tag",
