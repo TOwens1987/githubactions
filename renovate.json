@@ -7,5 +7,16 @@
   "terragrunt": {
     "fileMatch": ["^terragrunt/.*\\.hcl$"]
   },
-  
+
+  "regexManagers": [
+    {
+      "description": "Update custom tag",
+      "fileMatch": [".hcl$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: lookupName=(?<lookupName>.+?))?(?: \"revision = \"(?<currentValue>.*?)\"\\s"
+      ],
+      "depNameTemplate": "TOwens1987/GitVersioning",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
 }
