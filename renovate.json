@@ -10,13 +10,12 @@
 
   "regexManagers": [
   {
-    "fileMatch": ["^terragrunt/.*\\.hcl$"],
+    "fileMatch": ["terragrunt.hcl$"],
     "matchStringsStrategy": "any",
     "matchStrings": [
-      "Name = appdynamics",
-      "enabled = true",
-      "revision = (?<currentValue>\\S*)"
+      "revision =(?<currentValue>.*?)\\n"
       ],
+      "depNameTemplate": "appdynamics",
       "datasourceTemplate": "terragrunt"
     }
   ]
