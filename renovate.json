@@ -15,7 +15,7 @@
       "matchStrings": [
         "revision = \"(?<currentValue>.*?)\""
       ],
-      "depName": "TOwens1987/GitVersioning",
+      "depNameTemplate": "TOwens1987/GitVersioning",
       "datasourceTemplate": "github-releases"
     }
   ]
