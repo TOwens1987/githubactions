@@ -4,6 +4,12 @@
     "config:base"
   ],
 
+  "hostRules": [
+    {
+      "matchHost": "api.github.com",
+      "maxRequestsPerSecond": 2
+    }
+  ],
   "terragrunt": {
     "fileMatch": ["^terragrunt/.*\\.hcl$"]
   },
@@ -16,7 +22,7 @@
       "revision = \"(?<currentValue>.*?\""
       ],
       "depNameTemplate": "gruntwork-io/terragrunt",
-      "datasourceTemplate": "terragrunt"
+      "datasourceTemplate": "github-tags"
     }
   ]
 }
