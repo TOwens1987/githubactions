@@ -6,5 +6,16 @@
 
   "terragrunt": {
     "fileMatch": ["^terragrunt/.*\\.hcl$"]
-  }
+  },
+
+  "regexManagers": {
+    "fileMatch": ["^terragrunt/.*\\.hcl$"],
+    "matchStringsStrategy": "any",
+    "matchStrings": [
+      "Name = appdynamics",
+      "enabled = true",
+      "revision = (?<currentValue>\\S*)"
+      ],
+      "datasourceTemplate": "terragrunt"
+    }
 }
