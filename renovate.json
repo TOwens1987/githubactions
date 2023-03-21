@@ -13,7 +13,7 @@
     "fileMatch": ["terragrunt.hcl$"],
     "matchStringsStrategy": "any",
     "matchStrings": [
-      "revision =(?<currentValue>.*?)\\n"
+      "revision = \"(?<currentValue>.*?)\"\\n"
       ],
       "depNameTemplate": "gruntwork-io/terragrunt",
       "datasourceTemplate": "terragrunt"
