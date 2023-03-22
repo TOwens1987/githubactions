@@ -9,12 +9,14 @@
       "description": "Update HCL Plugins",
       "fileMatch": [".hcl$"],
       "matchStrings": [
-        "revision = \"(?<currentValue>.*?)\""
+        "revision =\\s(?<revision>.*)"
       ],
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "TOwens1987/GitVersioning",
       "depNameTemplate": "GitVersioning Update",
-      "extractVersionTemplate": "(?<version>.*)",
+      "extractVersionTemplate": "(?<version>.*)"
     }
   ]
 }
+
+kind:\s(?<kind>.*)
