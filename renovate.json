@@ -8,7 +8,7 @@
     {
       "description": "Update HCL Plugins",
       "fileMatch": [".hcl$"],
-      "matchStrings" [
+      "matchStrings": [
         "revision = \"(?<currentValue>.*?)\""
       ],
       "datasourceTemplate": "github-releases",
