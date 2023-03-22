@@ -3,12 +3,12 @@ inputs = {
     {
       name     = "testtool"
       enabled  = "true"
-      revision = "0.0.2"
+      revision = "3.0.0"
     },
     {
       name     = "anothertool"
       enabled  = "true"
-      revision = "0.0.5"
+      revision = "3.0.0"
     },
   ]
 }
