@@ -10,7 +10,7 @@
       "description": "Update HCL Plugins",
       "fileMatch": [".hcl$"],
       "matchStrings": [
-        "name\\s*=\\s\"(?<nameoftool>.*)\"\n\\s*enabled\s*=\\s\"true\"\\n\\s*revision\\s=\\s\"(?<currentValue>.*)\""
+        "name\\s*=\\s\"(?<nameoftool>.*)\"\n\\s*enabled\\s*=\\s\"true\"\\n\\s*revision\\s=\\s\"(?<currentValue>.*)\""
       ],
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "TOwens1987/{{nameoftool}}",
