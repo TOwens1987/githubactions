@@ -10,10 +10,10 @@
       "description": "Update HCL Plugins",
       "fileMatch": [".hcl$"],
       "matchStrings": [
-        "revision =\\s\"(?<currentValue>.*\\d)"
+        "name\\s*=\\s\"(?<nameoftool>.*)\"\n\\s*enabled\s*=\\s\"true\"\\n\\s*revision\\s=\\s\"(?<currentValue>.*)\""
       ],
       "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "TOwens1987/GitVersioning",
+      "packageNameTemplate": "TOwens1987/{{nameoftool}}",
       "depNameTemplate": "GitVersioning Update",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"

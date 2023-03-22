@@ -1,9 +1,14 @@
 inputs = {
   tool_config = [
     {
-      name     = "appdynamics"
+      name     = "testtool"
       enabled  = "true"
       revision = "0.0.2"
+    },
+    {
+      name     = "anothertool"
+      enabled  = "true"
+      revision = "0.0.5"
     },
   ]
 }
