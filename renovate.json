@@ -4,19 +4,18 @@
     "config:base"
   ],
 
-  "terragrunt": {
-    "fileMatch": ["^terragrunt/.*\\.hcl$"]
-  },
-
   "regexManagers": [
     {
-      "description": "Update custom tag",
-      "fileMatch": [".hcl$"],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: lookupName=(?<lookupName>.+?))?(?: \"revision = \"(?<currentValue>.*?)\"\\s"
+      "description": "Update Cloudquery Plugins",
+      "fileMatch": ["^cloudquery.yaml$"],
+      "matchStrings" [
+        "revision = \"(?<currentValue>.*?)\""
       ],
-      "depNameTemplate": "TOwens1987/GitVersioning",
-      "datasourceTemplate": "github-releases"
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "TOwens1987/GitVersioning",
+      "depNameTemplate": "GitVersioning Update",
+      "extractVersionTemplate": "^plugins-{{kind}}-{{plugin}}-v(?<version>.*)$",
+      "versioningTemplate": "semver"
     }
   ]
 }
