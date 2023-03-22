@@ -14,8 +14,7 @@
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "TOwens1987/GitVersioning",
       "depNameTemplate": "GitVersioning Update",
-      "extractVersionTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
-      "versioningTemplate": "semver"
+      "extractVersionTemplate": "(?<version>.*)",
     }
   ]
 }
