@@ -25,7 +25,7 @@
         "name\\s*=\\s\"testtool\"\\n\\s*enabled\\s*=\\s\"true\"\\n\\s*revision\\s=\\s\"(?<currentValue>.*)\""
       ],
       "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "TOwens1987/anothertool",
+      "packageNameTemplate": "TOwens1987/testtool",
       "depNameTemplate": "{{nameoftool}}",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
