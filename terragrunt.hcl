@@ -3,7 +3,7 @@ inputs = {
     {
       name     = "appdynamics"
       enabled  = "true"
-      revision = "0.0.2"
+      revision = "v0.8.0"
     },
   ]
 }
