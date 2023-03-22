@@ -6,8 +6,8 @@
 
   "regexManagers": [
     {
-      "description": "Update Cloudquery Plugins",
-      "fileMatch": ["^cloudquery.yaml$"],
+      "description": "Update HCL Plugins",
+      "fileMatch": [".hcl$"],
       "matchStrings" [
         "revision = \"(?<currentValue>.*?)\""
       ],
