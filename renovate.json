@@ -18,5 +18,17 @@
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
     },
+    {
+      "description": "Update HCL Plugins",
+      "fileMatch": [".hcl$"],
+      "matchStrings": [
+        "name\\s*=\\s\"testtool\"\\n\\s*enabled\\s*=\\s\"true\"\\n\\s*revision\\s=\\s\"(?<currentValue>.*)\""
+      ],
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "TOwens1987/testtool",
+      "depNameTemplate": "Testing",
+      "extractVersionTemplate": "^(?<version>.*)$",
+      "versioningTemplate": "semver"
+    }
   ]
 }
