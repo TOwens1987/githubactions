@@ -14,7 +14,7 @@
       ],
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "TOwens1987/anothertool",
-      "depNameTemplate": "{{nameoftool}}",
+      "depNameTemplate": "Testing",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
     },
