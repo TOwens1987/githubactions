@@ -2,8 +2,7 @@ name: Create New Tag
 
 on:
   workflow_call:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - "master"
     paths-ignore:
@@ -18,16 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: quick check for acceptable merge branch
-        if: ${{ !contains(github.event.pull_request.labels.*.name, 'feature') && !contains(github.event.pull_request.labels.*.name, 'bug') && !contains(github.event.pull_request.labels.*.name, 'hotfix') }}
-        run: | 
-              echo "::error ::Your branch you are working out of is not compatible with the automation of tag creation and versioning. Please use an approved branch like feature/, patch/, hotfix/, docs/ or bug/."
-              echo "${{ github.event.label.name }}"
-              echo "{{ github.event.pull_request.labels.*.name }}"
-              exit 1
 
       - name: minor-release
-        if: contains(github.event.pull_request.labels.*.name, 'feature')
         id: tag_version1
         uses: mathieudutour/github-tag-action@v6.0
         with:
@@ -37,7 +28,6 @@ jobs:
           tag_prefix: ""
 
       - name: Create a GitHub release for minor bump
-        if: contains(github.event.pull_request.labels.*.name, 'feature')
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version1.outputs.new_tag }}
