@@ -8,7 +8,7 @@ inputs = {
     {
       name     = "anothertool"
       enabled  = "true"
-      revision = "0.0.5"
+      revision = "6.0.0"
     },
   ]
 }
