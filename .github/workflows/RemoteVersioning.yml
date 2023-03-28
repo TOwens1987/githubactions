@@ -1,13 +1,45 @@
-# This is a basic workflow to help you get started with Actions
+name: Create New Tag
 
-name: Remote Versioning workflow
-
-# Controls when the workflow will run
 on:
-  repository_dispatch:
+  workflow_call:
   pull_request:
+    types: [closed]
+    branches:
+      - "master"
+    paths-ignore:
+      - "README.adoc"
+      - "docs/*"
+      - ".github/**"
+      - ".git*"
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  use_workflow:
-    uses: Towens1987/GitVersioning/.github/workflows/Versioning.yml@main
+  Tagging:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: quick check for acceptable merge branch
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'feature') && !contains(github.event.pull_request.labels.*.name, 'bug') && !contains(github.event.pull_request.labels.*.name, 'hotfix') }}
+        run: | 
+              echo "::error ::Your branch you are working out of is not compatible with the automation of tag creation and versioning. Please use an approved branch like feature/, patch/, hotfix/, docs/ or bug/."
+              echo "${{ github.event.label.name }}"
+              echo "{{ github.event.pull_request.labels.*.name }}"
+              exit 1
+
+      - name: minor-release
+        if: contains(github.event.pull_request.labels.*.name, 'feature')
+        id: tag_version1
+        uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: minor
+          create_annotated_tag: true
+          tag_prefix: ""
+
+      - name: Create a GitHub release for minor bump
+        if: contains(github.event.pull_request.labels.*.name, 'feature')
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version1.outputs.new_tag }}
+          name: Release ${{ steps.tag_version1.outputs.new_tag }}
+          body: ${{ github.event.pull_request.body }}
