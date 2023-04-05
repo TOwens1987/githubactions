@@ -5,6 +5,7 @@
   ],
   "enabledManagers": ["regex"],
   "branchPrefix": ["release/"],
+  "RENOVATE_PR_BODY_TEMPLATE": "{{{table}}}{{{notes}}}",
 
   "regexManagers": [
     {
