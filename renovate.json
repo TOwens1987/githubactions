@@ -5,7 +5,7 @@
   ],
   "enabledManagers": ["regex"],
   "branchPrefix": ["release/"],
-  "prBodyTemplate": "{{{table}}}{{{prBodyNotes}}}",
+  "prBodyTemplate": "{{{table}}}{{{notes}}}",
 
   "regexManagers": [
     {
