@@ -3,15 +3,7 @@ name: Create New Tag
 on:
   workflow_call:
   pull_request:
-    types: [closed]
-    branches:
-      - "master"
-    paths-ignore:
-      - "README.adoc"
-      - "docs/*"
-      - ".github/**"
-      - ".git*"
-
+    
 jobs:
   Tagging:
     runs-on: ubuntu-latest
