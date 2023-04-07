@@ -4,6 +4,8 @@ on:
   workflow_call:
   pull_request:
     types: [closed]
+    branches:
+      - "master"
     paths-ignore:
       - "README.adoc"
       - "docs/*"
@@ -15,8 +17,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: quick check for acceptable merge branch
+        if: ${{ !contains(github.event.pull_request.labels.*.name, 'feature') && !contains(github.event.pull_request.labels.*.name, 'bug') && !contains(github.event.pull_request.labels.*.name, 'hotfix') }}
+        run: | 
+              echo "::error ::Your branch you are working out of is not compatible with the automation of tag creation and versioning. Please use an approved branch like feature/, patch/, hotfix/, docs/ or bug/ so that it can get the appropriate label."
+              exit 1
 
-      - name: minor-release
+      - name: minor-tag
+        if: contains(github.event.pull_request.labels.*.name, 'feature') && github.event.pull_request.merged == true
         id: tag_version1
         uses: mathieudutour/github-tag-action@v6.0
         with:
@@ -25,9 +33,48 @@ jobs:
           create_annotated_tag: true
           tag_prefix: ""
 
+      - name: release-tag
+        if: contains(github.event.pull_request.labels.*.name, 'pre-release')
+        id: tag_version3
+        uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: minor
+          create_annotated_tag: true
+          tag_prefix: ""
+
+
+      - name: hotfix-tag
+        if: (contains(github.event.pull_request.labels.*.name, 'hotfix') || contains(github.event.pull_request.labels.*.name, 'fix') || contains(github.event.pull_request.labels.*.name, 'bug')) and github.event.pull_request.merged == true
+        id: tag_version2
+        uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: patch
+          create_annotated_tag: true
+          tag_prefix: ""
+
       - name: Create a GitHub release for minor bump
+        if: contains(github.event.pull_request.labels.*.name, 'feature') && github.event.pull_request.merged == true
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version1.outputs.new_tag }}
           name: Release ${{ steps.tag_version1.outputs.new_tag }}
           body: ${{ github.event.pull_request.body }}
+
+      - name: Create a GitHub release for patch bump
+        if: ((contains(github.event.pull_request.labels.*.name, 'patch')) || (contains(github.event.pull_request.labels.*.name, 'fix')) || (contains(github.event.pull_request.labels.*.name, 'hotfix')) || (contains(github.event.pull_request.labels.*.name, 'bug')) && github.event.pull_request.merged == true)
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version2.outputs.new_tag }}
+          name: Release ${{ steps.tag_version2.outputs.new_tag }}
+          body: ${{ github.event.pull_request.body }}
+
+      - name: Create a GitHub release for pre-release
+        if: (contains(github.event.pull_request.labels.*.name, 'pre-release'))
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version3.outputs.new_tag }}
+          name: Release ${{ steps.tag_version3.outputs.new_tag }}
+          body: ${{ github.event.pull_request.body }}
+          prerelease: "true"
