@@ -3,7 +3,7 @@ inputs = {
     {
       name     = "testtool"
       enabled  = "true"
-      revision = "14.0.0"
+      revision = "16.0.0"
     },
     {
       name     = "anothertool"
