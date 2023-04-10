@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: quick check for acceptable merge branch
-        if: github.head_ref != 'release/testing-14.x'
+        if: github.head_ref != 'release/testing-14.x' && ${{ !contains(github.event.pull_request.labels.*.name, 'feature') && !contains(github.event.pull_request.labels.*.name, 'bug') && !contains(github.event.pull_request.labels.*.name, 'hotfix')  }}
         run: | 
               echo "::error ::Your branch you are working out of is not compatible with the automation of tag creation and versioning. Please use an approved branch like feature/, patch/, hotfix/, docs/ or bug/ so that it can get the appropriate label."
               exit 1
@@ -27,7 +27,7 @@ jobs:
           tag_prefix: ""
 
       - name: release-tag
-        if: (contains(github.event.pull_request.labels.*.name, 'pre-release')  && github.head_ref == 'release/testing-14.x' && github.event.action != 'closed')
+        if: (github.head_ref == 'release/testing-14.x' && github.event.action != 'closed')
         id: tag_version3
         uses: mathieudutour/github-tag-action@v6.0
         with:
@@ -64,7 +64,7 @@ jobs:
           body: ${{ github.event.pull_request.body }}
 
       - name: Create a GitHub release for pre-release
-        if: (contains(github.event.pull_request.labels.*.name, 'pre-release') && github.head_ref == 'release/testing-14.x' && github.event.action != 'closed')
+        if: (github.head_ref == 'release/testing-14.x' && github.event.action != 'closed')
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version3.outputs.new_tag }}
