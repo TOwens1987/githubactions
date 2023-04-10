@@ -27,7 +27,7 @@ jobs:
           tag_prefix: ""
 
       - name: release-tag
-        if: (contains(github.event.pull_request.labels.*.name, 'pre-release')  && github.head_ref == 'release/testing-14.x' && github.event.action != 'closed'))
+        if: (contains(github.event.pull_request.labels.*.name, 'pre-release')  && github.head_ref == 'release/testing-14.x' && github.event.action != 'closed')
         id: tag_version3
         uses: mathieudutour/github-tag-action@v6.0
         with:
