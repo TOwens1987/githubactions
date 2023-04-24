@@ -1,21 +1,23 @@
-name: Search Release Notes Description
+name: Search Release Notes
+
 on:
-  workflow_dispatch:
-    inputs:
-      repo:
-        description: 'The owner and name of the repository to search in (e.g., owner/repo).'
-        required: true
-      release:
-        description: 'The ID or tag of the release to search in.'
-        required: true
+  push:
+    branches:
+      - main
 
 jobs:
-  search:
+  search_release_notes:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Search release notes description
+
+      - name: Search release notes
+        id: search
         run: |
-          RELEASE_NOTES=$(curl -s https://api.github.com/repos/${{ github.event.inputs.repo }}/releases/${{ github.event.inputs.release }} | jq -r '.body')
-          echo "${RELEASE_NOTES}" | grep -E -i "Description\s+([^>]+)" -o | sed 's/Description\s*//g'
+          description=$(curl -s https://api.github.com/repos/<OWNER>/<REPO>/releases/tags/<TAG> | jq -r '.body' | grep -i description)
+          echo "::set-output name=description::$description"
+
+      - name: Display results
+        run: |
+          echo "${{ steps.search.outputs.description }}"| grep -E -i "Description\s+([^>]+)" -o | sed 's/Description\s*//g'
