@@ -1,10 +1,13 @@
-name: Search Release Notes
-
+name: Search Release Description
 on:
-  push:
-    branches:
-      - main
-
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: 'The owner and name of the repository to search in (e.g., owner/repo).'
+        required: true
+      release:
+        description: 'The ID or tag of the release to search in.'
+        required: true
 jobs:
   search_release_notes:
     runs-on: ubuntu-latest
