@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: minor-tag
         if: contains(github.event.pull_request.labels.*.name, 'feature') && github.event.pull_request.merged == true
         id: tag_version1
