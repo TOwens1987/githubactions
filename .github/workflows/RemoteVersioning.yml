@@ -70,8 +70,8 @@ jobs:
         if: (github.head_ref == 'release/dev' && github.event.action == 'opened')
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.tag_version2.outputs.new_tag }}
-          name: Release ${{ steps.tag_version2.outputs.new_tag }}
+          tag: ${{ steps.tag_version3.outputs.new_tag }}
+          name: Release ${{ steps.tag_version3.outputs.new_tag }}
           body: ${{ github.event.pull_request.body }}
           prerelease: "true"
 
