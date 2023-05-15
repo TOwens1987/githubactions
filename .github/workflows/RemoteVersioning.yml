@@ -2,9 +2,6 @@ name: Create New Tag
 
 on:
   workflow_call:
-  push:
-    branches:
-      - release/dev
   pull_request:
     types: [opened, closed, synchronize, edited]
 
