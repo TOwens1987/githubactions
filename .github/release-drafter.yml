@@ -1,0 +1,7 @@
+change-template: |
+  $BODY
+
+template: |
+  ## What’s Changed
+
+  $CHANGES
