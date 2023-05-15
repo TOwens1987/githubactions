@@ -8,6 +8,14 @@
   "branchPrefix": ["release/"],
   "prBodyTemplate": "{{{table}}}{{{notes}}}{{{changelogs}}}{{{footer}}}",
   "labels": ["pre-release"],
+  "packageRules": [
+    {
+      "description": "group depends",
+      "matchPaths": ["*"],
+      "groupName": "dev",
+      "separateMajorMinor": "false"
+    }
+  ],
 
   "regexManagers": [
     {
@@ -18,7 +26,7 @@
       ],
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "TOwens1987/anothertool",
-      "depNameTemplate": "Testing",
+      "depNameTemplate": "dev",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
     },
@@ -30,7 +38,7 @@
       ],
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "TOwens1987/testtool",
-      "depNameTemplate": "Testing",
+      "depNameTemplate": "dev",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
     }
