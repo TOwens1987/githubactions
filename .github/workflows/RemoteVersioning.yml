@@ -4,7 +4,7 @@ on:
   workflow_call:
   push:
   pull_request:
-    types: [opened, closed, synchronize, edited]
+    types: [opened, closed, synchronize]
 jobs:
   Tagging:
     permissions:
@@ -70,7 +70,7 @@ jobs:
           prerelease: "true"
 
       - name: dryrun-tag
-        if:  (github.head_ref == 'release/dev' && (github.event.action == 'synchronize' || github.event.action == 'edited'))
+        if:  (github.head_ref == 'release/dev' && (github.event.action == 'synchronize'))
         id: tag_version4
         uses: mathieudutour/github-tag-action@v6.1
         with:
@@ -81,7 +81,7 @@ jobs:
           dry_run: "true"
 
       - name: Modify a GitHub release for release bump
-        if: (github.head_ref == 'release/dev' && (github.event.action == 'synchronize' || github.event.action == 'edited'))
+        if: (github.head_ref == 'release/dev' && (github.event.action == 'synchronize'))
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version4.outputs.previous_tag }}
