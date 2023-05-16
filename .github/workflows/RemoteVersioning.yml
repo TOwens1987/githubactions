@@ -69,7 +69,7 @@ jobs:
           body: ${{ github.event.pull_request.body }}
 
       - name: dryrun-tag
-        if:  (github.head_ref == 'release/dev' && (github.event.action == 'synchronize' || github.event.action == 'edited')
+        if:  (github.head_ref == 'release/dev' && (github.event.action == 'synchronize' || github.event.action == 'edited'))
         id: tag_version4
         uses: mathieudutour/github-tag-action@v6.1
         with:
@@ -80,7 +80,7 @@ jobs:
           dry_run: "true"
 
       - name: Modify a GitHub release for release bump
-        if: (github.head_ref == 'release/dev' && (github.event.action == 'synchronize' || github.event.action == 'edited')
+        if: (github.head_ref == 'release/dev' && (github.event.action == 'synchronize' || github.event.action == 'edited'))
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version4.outputs.previous_tag }}
