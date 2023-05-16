@@ -67,6 +67,7 @@ jobs:
           tag: ${{ steps.tag_version3.outputs.new_tag }}
           name: Release ${{ steps.tag_version3.outputs.new_tag }}
           body: ${{ github.event.pull_request.body }}
+          prerelease: "true"
 
       - name: dryrun-tag
         if:  (github.head_ref == 'release/dev' && (github.event.action == 'synchronize' || github.event.action == 'edited'))
@@ -86,3 +87,5 @@ jobs:
           tag: ${{ steps.tag_version4.outputs.previous_tag }}
           name: Release ${{ steps.tag_version3.outputs.previous_tag }}
           body: ${{ github.event.pull_request.body }}
+          allowUpdates: "true"
+          prerelease: "true"
