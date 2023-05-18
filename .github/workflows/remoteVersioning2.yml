@@ -18,9 +18,9 @@ jobs:
         id: determine-bump
         run: |
           if [[ "${{ (contains(github.event.pull_request.labels.*.name, 'feature') || (github.head_ref == 'release/dev')) }}" ]]; then
-            echo "minor" | tr -d '\n' 
+            printf "minor" 
           else
-            echo "patch" | tr -d '\n'
+            printf "patch"
           fi
         env:
           DEFAULT_BUMP: ${{ steps.determine-bump.outputs.stdout }}
@@ -29,9 +29,9 @@ jobs:
         id: determine-run
         run: |
           if [[ "${{ ((github.head_ref == 'release/dev' && github.event.action == 'opened')) || (github.event.pull_request.merged == true)   }}" ]]; then
-            echo "false" | tr -d '\n'
+            printf "false"
           else
-            echo "true" | tr -d '\n'
+            printf "true"
           fi
         env:
           DEFAULT_RUN: ${{ steps.determine-run.outputs.stdout }}
@@ -50,12 +50,24 @@ jobs:
         id: determine-tag
         run: |
           if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'synchronize') }}" ]]; then
-            echo "${{ steps.determine-tag.outputs.previous_tag }}" | tr -d '\n'
+            printf "${{ steps.determine-tag.outputs.previous_tag }}"
           else
-            echo "${{ steps.determine-tag.outputs.new_tag }}" | tr -d '\n'
+            printf "${{ steps.determine-tag.outputs.new_tag }}"
           fi
         env:
           DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
+
+      - name: Determine default tag to use
+        id: determine-tag
+        run: |
+          if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'synchronize') }}" ]]; then
+          echo -n "$(echo "${{ steps.determine-tag.outputs.previous_tag }}" | tr -d '\n')"
+          else
+          echo -n "$(echo "${{ steps.determine-tag.outputs.new_tag }}" | tr -d '\n')"
+          fi
+        env:
+          DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
+
 
       - name: GitHub Release Creation and Monitoring
         uses: ncipollo/release-action@v1
