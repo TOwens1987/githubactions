@@ -24,7 +24,7 @@ jobs:
           fi
         env:
           DEFAULT_BUMP: >-
-            ${{ steps.determine-bump.outputs.stdout }} | sed -e 's/^[ \t]*//' }}
+            ${{ steps.determine-bump.outputs.stdout | trim }}
 
       - name: Determine Default dry-run
         id: determine-run
@@ -36,7 +36,7 @@ jobs:
           fi
         env:
           DEFAULT_RUN: >-
-            ${{ steps.determine-run.outputs.stdout }} | sed -e 's/^[ \t]*//' }}
+            ${{ steps.determine-run.outputs.stdout | trim }}
 
       - name: Create Tag
         id: create-tag
@@ -58,7 +58,7 @@ jobs:
           fi
         env:
           DEFAULT_TAG: >-
-            ${{ steps.determine-tag.outputs.stdout }} | sed -e 's/^[ \t]*//' }}
+            ${{ steps.determine-tag.outputs.stdout | trim }}
 
       - name: GitHub Release Creation and Monitoring
         uses: ncipollo/release-action@v1
