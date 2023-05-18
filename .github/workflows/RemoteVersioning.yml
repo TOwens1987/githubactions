@@ -13,6 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: quick check for acceptable merge branch
+        # Using github.head_ref for release branches because the automatic labeling of these branches with renovate isn't quick enough to run these actions from a label.
+        if: ${{ (github.head_ref != 'release/dev') && (github.head_ref != 'release/stage') && (github.head_ref != 'release/prod') && (github.head_ref != 'release/sbx') && !contains(github.event.pull_request.labels.*.name, 'feature') && !contains(github.event.pull_request.labels.*.name, 'bug') && !contains(github.event.pull_request.labels.*.name, 'hotfix')  }}
+        run: |
+          echo "::error ::Your branch you are working out of is not compatible with the automation of tag creation and versioning. Please use an approved branch like feature/, patch/, hotfix/, docs/ or bug/ so that it can get the appropriate label."
+          exit 1
+
       - name: minor-tag
         if: contains(github.event.pull_request.labels.*.name, 'feature') && github.event.pull_request.merged == true
         id: tag_version1
@@ -85,7 +93,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version4.outputs.previous_tag }}
-          name: Release ${{ steps.tag_version3.outputs.previous_tag }}
+          name: Release ${{ steps.tag_version4.outputs.previous_tag }}
           body: ${{ github.event.pull_request.body }}
           allowUpdates: "true"
           prerelease: "true"
