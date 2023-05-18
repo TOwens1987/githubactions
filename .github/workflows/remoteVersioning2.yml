@@ -23,7 +23,8 @@ jobs:
             printf "patch"
           fi
         env:
-          DEFAULT_BUMP: ${{ steps.determine-bump.outputs.stdout }}
+          DEFAULT_BUMP: >-
+          ${{ steps.determine-bump.outputs.stdout }}
 
       - name: Determine Default dry-run
         id: determine-run
@@ -34,7 +35,8 @@ jobs:
             printf "true"
           fi
         env:
-          DEFAULT_RUN: ${{ steps.determine-run.outputs.stdout }}
+          DEFAULT_RUN: >-
+          ${{ steps.determine-run.outputs.stdout }}
 
       - name: Create Tag
         id: create-tag
@@ -55,7 +57,8 @@ jobs:
             printf "${{ steps.determine-tag.outputs.new_tag }}"
           fi
         env:
-          DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
+          DEFAULT_TAG: >-
+            ${{ steps.determine-tag.outputs.stdout }}
 
       - name: GitHub Release Creation and Monitoring
         uses: ncipollo/release-action@v1
