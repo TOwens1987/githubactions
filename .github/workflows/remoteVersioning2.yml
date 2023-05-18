@@ -24,7 +24,7 @@ jobs:
           fi
         env:
           DEFAULT_BUMP: >-
-          ${{ steps.determine-bump.outputs.stdout }}
+            ${{ steps.determine-bump.outputs.stdout }}
 
       - name: Determine Default dry-run
         id: determine-run
@@ -36,7 +36,7 @@ jobs:
           fi
         env:
           DEFAULT_RUN: >-
-          ${{ steps.determine-run.outputs.stdout }}
+            ${{ steps.determine-run.outputs.stdout }}
 
       - name: Create Tag
         id: create-tag
