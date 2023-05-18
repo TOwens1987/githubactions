@@ -36,7 +36,7 @@ jobs:
         env:
           DEFAULT_RUN: ${{ steps.determine-run.outputs.stdout }}
 
-      - name: Determine Default tag
+      - name: Determine default tag to use
         id: determine-tag
         run: |
           if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'synchronize') }}" ]]; then
@@ -48,8 +48,8 @@ jobs:
           DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
 
 
-      - name: Tag Version
-        id: determine-tag
+      - name: Create Tag
+        id: create-tag
         uses: mathieudutour/github-tag-action@v6.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -62,7 +62,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ env.DEFAULT_TAG }}
-          name: Release ${{ steps.determine-tag.outputs.new_tag }}
+          name: Release ${{ env.DEFAULT_TAG }}
           body: ${{ github.event.pull_request.body }}
           allowUpdates: "true"
           pre-release: ${{ env.DEFAULT_RUN }}
