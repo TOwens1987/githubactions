@@ -18,9 +18,9 @@ jobs:
         id: determine-bump
         run: |
           if [[ "${{ (contains(github.event.pull_request.labels.*.name, 'feature') || (github.head_ref == 'release/dev')) }}" ]]; then
-            echo -n "minor" 
+            echo "minor" | tr -d '\n' 
           else
-            echo -n "patch"
+            echo "patch" | tr -d '\n'
           fi
         env:
           DEFAULT_BUMP: ${{ steps.determine-bump.outputs.stdout }}
@@ -29,9 +29,9 @@ jobs:
         id: determine-run
         run: |
           if [[ "${{ ((github.head_ref == 'release/dev' && github.event.action == 'opened')) || (github.event.pull_request.merged == true)   }}" ]]; then
-            echo -n "false" 
+            echo "false" | tr -d '\n'
           else
-            echo -n "true"
+            echo "true" | tr -d '\n'
           fi
         env:
           DEFAULT_RUN: ${{ steps.determine-run.outputs.stdout }}
@@ -50,9 +50,9 @@ jobs:
         id: determine-tag
         run: |
           if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'synchronize') }}" ]]; then
-            echo -n "${{ steps.determine-tag.outputs.previous_tag }}" 
+            echo "${{ steps.determine-tag.outputs.previous_tag }}" | tr -d '\n'
           else
-            echo -n "${{ steps.determine-tag.outputs.new_tag }}"
+            echo "${{ steps.determine-tag.outputs.new_tag }}" | tr -d '\n'
           fi
         env:
           DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
