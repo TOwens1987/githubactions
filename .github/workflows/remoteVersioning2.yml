@@ -57,18 +57,6 @@ jobs:
         env:
           DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
 
-      - name: Determine default tag to use
-        id: determine-tag
-        run: |
-          if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'synchronize') }}" ]]; then
-          echo -n "$(echo "${{ steps.determine-tag.outputs.previous_tag }}" | tr -d '\n')"
-          else
-          echo -n "$(echo "${{ steps.determine-tag.outputs.new_tag }}" | tr -d '\n')"
-          fi
-        env:
-          DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
-
-
       - name: GitHub Release Creation and Monitoring
         uses: ncipollo/release-action@v1
         with:
