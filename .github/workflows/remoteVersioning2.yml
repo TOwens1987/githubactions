@@ -28,7 +28,7 @@ jobs:
       - name: Determine Default dry-run
         id: determine-run
         run: |
-          if [[ "${{ ((github.head_ref == 'release/dev' && github.event.action == 'opened')) || (github.event.pull_request.merged == true)   }}" ]]; then
+          if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'opened') || (github.head_ref != 'release/dev' && github.event.pull_request.merged == true) }}" ]]; then
             echo "DEFAULT_RUN=false" >> "$GITHUB_ENV"
           else
             echo "DEFAULT_RUN=true" >> "$GITHUB_ENV"
