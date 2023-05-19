@@ -55,7 +55,7 @@ jobs:
             echo "DEFAULT_TAG=${{ steps.create-tag.outputs.new_tag }}" >> "$GITHUB_ENV"
           fi
         env:
-          DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
+          DEFAULT_TAG: ${{ steps.create-tag.outputs.stdout }}
 
       - name: GitHub Release Creation and Monitoring
         uses: ncipollo/release-action@v1
