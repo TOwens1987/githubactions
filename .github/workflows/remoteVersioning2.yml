@@ -64,5 +64,5 @@ jobs:
           name: Release ${{ env.DEFAULT_TAG }}
           body: ${{ github.event.pull_request.body }}
           allowUpdates: "true"
-          pre-release: ${{ env.DEFAULT_RUN }}
+          prerelease: ${{ env.DEFAULT_RUN }}
           updateOnlyUnreleased: "true"
