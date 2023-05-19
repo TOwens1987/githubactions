@@ -50,9 +50,9 @@ jobs:
         id: determine-tag
         run: |
           if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'synchronize') }}" ]]; then
-            echo "DEFAULT_TAG=${{ steps.determine-tag.outputs.previous_tag }}" >> "$GITHUB_ENV"
+            echo "DEFAULT_TAG=${{ steps.create-tag.outputs.previous_tag }}" >> "$GITHUB_ENV"
           else
-            echo "DEFAULT_TAG=${{ steps.determine-tag.outputs.new_tag }}" >> "$GITHUB_ENV"
+            echo "DEFAULT_TAG=${{ steps.create-tag.outputs.new_tag }}" >> "$GITHUB_ENV"
           fi
         env:
           DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
