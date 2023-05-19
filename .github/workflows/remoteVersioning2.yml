@@ -18,25 +18,23 @@ jobs:
         id: determine-bump
         run: |
           if [[ "${{ (contains(github.event.pull_request.labels.*.name, 'feature') || (github.head_ref == 'release/dev')) }}" ]]; then
-            printf "minor" 
+            echo "::set-env name=DEFAULT_BUMP::minor"
           else
-            printf "patch"
+            echo "::set-env name=DEFAULT_BUMP::patch"
           fi
         env:
-          DEFAULT_BUMP: >-
-            ${{ steps.determine-bump.outputs.stdout | trim }}
+          DEFAULT_BUMP: ${{ steps.determine-bump.outputs.stdout }}
 
       - name: Determine Default dry-run
         id: determine-run
         run: |
           if [[ "${{ ((github.head_ref == 'release/dev' && github.event.action == 'opened')) || (github.event.pull_request.merged == true)   }}" ]]; then
-            printf "false"
+            echo "::set-env name=DEFAULT_RUN::false"
           else
-            printf "true"
+            echo "::set-env name=DEFAULT_RUN::true"
           fi
         env:
-          DEFAULT_RUN: >-
-            ${{ steps.determine-run.outputs.stdout | trim }}
+          DEFAULT_RUN: ${{ steps.determine-run.outputs.stdout }}
 
       - name: Create Tag
         id: create-tag
@@ -52,13 +50,12 @@ jobs:
         id: determine-tag
         run: |
           if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'synchronize') }}" ]]; then
-            printf "${{ steps.determine-tag.outputs.previous_tag }}"
+            echo "::set-env name=DEFAULT_TAG::${{ steps.determine-tag.outputs.previous_tag }}"
           else
-            printf "${{ steps.determine-tag.outputs.new_tag }}"
+            echo "::set-env name=DEFAULT_TAG::${{ steps.determine-tag.outputs.new_tag }}"
           fi
         env:
-          DEFAULT_TAG: >-
-            ${{ steps.determine-tag.outputs.stdout | trim }}
+          DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
 
       - name: GitHub Release Creation and Monitoring
         uses: ncipollo/release-action@v1
