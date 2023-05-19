@@ -17,10 +17,10 @@ jobs:
       - name: Determine Default Bump
         id: determine-bump
         run: |
-          if [[ "${{ ((contains(github.event.pull_request.labels.*.name, 'feature') || (github.head_ref == 'release/dev'))) }}" ]]; then
-            echo "DEFAULT_BUMP=minor" >> "$GITHUB_ENV" 
+          if [[ ${{ contains(github.event.pull_request.labels.*.name, 'feature') || github.head_ref == 'release/dev' }} ]]; then
+            echo "DEFAULT_BUMP=minor" >> $GITHUB_ENV
           else
-            echo "DEFAULT_BUMP=patch" >> "$GITHUB_ENV"
+            echo "DEFAULT_BUMP=patch" >> $GITHUB_ENV
           fi
         env:
           DEFAULT_BUMP: "${{ steps.determine-bump.outputs.stdout }}"
