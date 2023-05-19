@@ -18,9 +18,9 @@ jobs:
         id: determine-bump
         run: |
           if [[ "${{ (contains(github.event.pull_request.labels.*.name, 'feature') || (github.head_ref == 'release/dev')) }}" ]]; then
-            echo "minor" >> "$GITHUB_ENV" 
+            echo "DEFAULT_BUMP=minor" >> "$GITHUB_ENV" 
           else
-            echo "patch" >> "$GITHUB_ENV"
+            echo "DEFAULT_BUMP=patch" >> "$GITHUB_ENV"
           fi
         env:
           DEFAULT_BUMP: "${{ steps.determine-bump.outputs.stdout }}"
@@ -29,9 +29,9 @@ jobs:
         id: determine-run
         run: |
           if [[ "${{ ((github.head_ref == 'release/dev' && github.event.action == 'opened')) || (github.event.pull_request.merged == true)   }}" ]]; then
-            echo "false" >> "$GITHUB_ENV"
+            echo "DEFAULT_RUN=false" >> "$GITHUB_ENV"
           else
-            echo "true" >> "$GITHUB_ENV"
+            echo "DEFAULT_RUN=true" >> "$GITHUB_ENV"
           fi
         env:
           DEFAULT_RUN: ${{ steps.determine-run.outputs.stdout }}
@@ -50,9 +50,9 @@ jobs:
         id: determine-tag
         run: |
           if [[ "${{ (github.head_ref == 'release/dev' && github.event.action == 'synchronize') }}" ]]; then
-            echo "${{ steps.determine-tag.outputs.previous_tag }}" >> "$GITHUB_ENV"
+            echo "DEFAULT_TAG=steps.determine-tag.outputs.previous_tag" >> "$GITHUB_ENV"
           else
-            echo "${{ steps.determine-tag.outputs.new_tag }}" >> "$GITHUB_ENV"
+            echo "DEFAULT_TAG=steps.determine-tag.outputs.new_tag" >> "$GITHUB_ENV"
           fi
         env:
           DEFAULT_TAG: ${{ steps.determine-tag.outputs.stdout }}
