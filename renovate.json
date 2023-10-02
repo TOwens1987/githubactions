@@ -38,7 +38,8 @@
       "matchStrings": [
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
-      "depNameTemplate": "appversion",
+      "depNameTemplate": "app version",
+      "packageNameTemplate": "appVersion: \\d+(\\.\\d+)*$/",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
