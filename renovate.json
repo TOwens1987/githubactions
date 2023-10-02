@@ -32,7 +32,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["chart.yml$"],
+      "fileMatch": ["chart.yaml$"],
       "datasourceTemplate": "custom.tool_generic",
       "matchStrings": [
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
