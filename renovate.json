@@ -23,6 +23,7 @@
   "customDatasources": {
     "tool_generic": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/{{packageName}}",
+      "format": "plain",
       "transformTemplates": [
         "{ \"releases\": $map($, function($v) { { \"version\": $v.appVersion, \"sourceUrl\": $v.filelink } }) }"
       ]
