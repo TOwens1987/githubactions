@@ -25,7 +25,7 @@
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
-        "releases.version[$number(version[/$substring(version, \"appversion: \".length)])]"
+        "releases.version[$number($substring(version, \"appversion: \".length))]"
       ]
     }
   },
