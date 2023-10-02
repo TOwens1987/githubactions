@@ -17,7 +17,7 @@
       "depNameTemplate": "GitVersioning Update",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
-    },
+    }
   ],
 
   "customDatasources": {
@@ -25,7 +25,7 @@
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
-        "{ \"releases\": $map($, function($v) { { \"appversion\": $v.Version, } }) }"
+        "releases.version[$substring(version, 11)]"
       ]
     }
   },
