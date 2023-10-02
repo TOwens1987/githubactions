@@ -37,7 +37,7 @@
       "matchStrings": [
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
-      "depNameTemplate": "Chart Update",
+      "depNameTemplate": "chart.yaml",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
