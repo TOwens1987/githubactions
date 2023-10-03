@@ -25,7 +25,7 @@
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
-        "$map(releases[$contains(version, /^appversion:/)], function($v) {\n  $substring($v.version, 12)\n})"
+        "{\n  \"releases\": $map(releases[$contains(version, /^appVersion:/)], function($v) {\n    {\n      \"version\": $substring($v.version, 12)\n    }\n  })\n}"
       ]
     }
   },
@@ -38,10 +38,9 @@
       "matchStrings": [
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
-      "autoReplaceStringTemplate": "test123: {{{newValue}}}",
       "depNameTemplate": "app version",
       "packageNameTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
-      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<revision>\\d+)$"
+      "versioningTemplate": "regex:.*"
     }
   ]
 
