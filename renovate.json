@@ -38,6 +38,7 @@
       "matchStrings": [
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
+      "autoReplaceStringTemplate": "test123: {{{newValue}}}",
       "depNameTemplate": "app version",
       "packageNameTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
       "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<revision>\\d+)$"
