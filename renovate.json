@@ -39,9 +39,9 @@
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "app version",
-      "packageNameTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
+      "packageNameTemplate": "version",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
-  
+
 }
