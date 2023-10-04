@@ -39,7 +39,6 @@
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "app version",
-      "packageNameTemplate": "version",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
