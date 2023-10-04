@@ -36,13 +36,12 @@
       "fileMatch": ["chart.yaml$"],
       "datasourceTemplate": "custom.tool_generic",
       "matchStrings": [
-        "\\s*test123:\\s*(?<currentValue>[^\\n]*)(?:\\s+versioning=(?&currentValue))?"
+        "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "app version",
       "packageNameTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
-
-
+  
 }
