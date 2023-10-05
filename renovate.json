@@ -20,27 +20,25 @@
     }
   ],
 
-  "customDatasources": {
-    "tool_generic": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
-      "format": "plain",
-      "transformTemplates": [
-        "{\"releases\": $map(releases[$contains(version, /^appversion:/)], function($v) {{\"version\": $substring($v.version, 12)}})}"
-      ]
-    }
-  },
-
   "customManagers": [
     {
       "customType": "regex",
       "fileMatch": ["chart.yaml$"],
-      "datasourceTemplate": "custom.tool_generic",
+      "datasourceTemplate": "custom.tool-generic",
       "matchStrings": [
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "version",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
-  ]
-
+  ],
+  "customDatasources": {
+    "tool-generic": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
+      "format": "plain",
+      "transformTemplates": [
+        "{\"releases\": $map(releases[$contains(version, /^appversion:/)], function($v) {{\"version\": $substring($v.version, 12)}})}"
+      ]
+    }
+  }
 }
