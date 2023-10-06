@@ -38,7 +38,7 @@
       "format": "plain",
       "transformTemplates": [
         "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appversion:/)}), function($v) {$v})]}",
-        "{\"releases\": $map(releases, function($v) {\"version\": $replace($v.version, /^appversion:\\s*/, '')})}\n"
+        "{\"releases\": $map(releases, function($v) {{\"version\": $replace($v.version, /^appversion:\\s*/, '')})}\n"
       ]
     }
   }
