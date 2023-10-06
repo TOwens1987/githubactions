@@ -26,10 +26,10 @@
       "fileMatch": ["chart.yaml$"],
       "datasourceTemplate": "custom.tool-generic",
       "matchStrings": [
-        "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
+        "\\s*appVersion:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "version",
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}appVersion: ?v?\\d+\\.\\d+\\.\\d+{{/if}}"
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ],
   "customDatasources": {
@@ -37,7 +37,7 @@
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
-        "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appversion:/)}), function($v) {$v})]}"
+        "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appVersion:/)}), function($v) {$v})]}"
       ]
     }
   }
