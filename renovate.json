@@ -5,6 +5,15 @@
   ],
   "enabledManagers": ["regex"],
 
+
+  "packageRules": [
+    {
+      "matchPaths": ["chart.yaml"],
+      "extractVersion": "^(?<version>\\s*appVersion:\\s*\\d+(\\.\\d+)*))"
+    }
+  ],
+
+
   "regexManagers": [
     {
       "description": "Update HCL Plugins",
