@@ -29,7 +29,7 @@
         "\\s*test123:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "version",
-      "versioningTemplate": "{{appVersion: ?v?\\d+\\.\\d+\\.\\d+}}"
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}appVersion: ?v?\\d+\\.\\d+\\.\\d+{{/if}}"
     }
   ],
   "customDatasources": {
