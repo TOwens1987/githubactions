@@ -37,7 +37,7 @@
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
-        "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appversion:/)}), function($v) {$v})]}", "{\"releases\": $map(releases, function($v) {{"version": $replace($v.version, /^appversion:\\s*/, '')}})}"
+        "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appversion:/)}), function($v) {$v})]}", "{\"releases\": $map(releases, function($v) {{\"version\": $replace($v.version, /^appversion:\\s*/, '')}})}"
       ]
     }
   }
