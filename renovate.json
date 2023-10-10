@@ -38,7 +38,7 @@
       ],
       "depNameTemplate": "version",
       "packageNameTemplate": "version",
-      "versioningTemplate": "regex:^(?<major>\\\\d+)\\\\.(?<minor>\\\\d+)\\\\.(?<patch>\\\\d+)\\\\.(?<revision>\\\\d+)$"
+      "extractVersionTemplate": "^(?<version>.*)$"
     }
   ],
   "customDatasources": {
