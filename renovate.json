@@ -38,7 +38,7 @@
       ],
       "depNameTemplate": "version",
       "packageNameTemplate": "version",
-      "extractVersionTemplate": "^(?<version>.*)$"
+      "extractVersionTemplate": "appVersion:\\s*(\\d+(\\.\\d+)*)"
     }
   ],
   "customDatasources": {
