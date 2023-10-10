@@ -36,8 +36,8 @@
       "matchStrings": [
         "\\s*appVersion:\\s*(?<currentValue>[^\\n]*)"
       ],
-      "depNameTemplate": "version",
-      "packageNameTemplate": "version",
+      "depNameTemplate": "\"version\"",
+      "packageNameTemplate": "\"version\"",
       "extractVersionTemplate": "appVersion:\\s*(\\d+(\\.\\d+)*)"
     }
   ],
