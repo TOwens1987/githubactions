@@ -34,7 +34,7 @@
       "fileMatch": ["chart.yaml$"],
       "datasourceTemplate": "custom.tool-generic",
       "matchStrings": [
-        "(?<extractVersion>\\s*appVersion:\\s*\\d+(\\.\\d+)*))"
+        "\\s*appVersion:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "releases",
       "packageNameTemplate": "releases",
