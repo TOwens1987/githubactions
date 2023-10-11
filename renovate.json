@@ -37,8 +37,9 @@
         "\\s*appVersion:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "releases",
+      "extractVersionTemplate": "",
       "packageNameTemplate": "releases",
-      "extractVersionTemplate": "^(?<version>.*)$"
+      "extractVersionTemplate": "\"version\": \"(appVersion: [^\"]+)\""
     }
   ],
   "customDatasources": {
