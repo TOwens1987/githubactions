@@ -8,8 +8,8 @@
 
   "packageRules": [
     {
-      "matchPackageNames": ["angular"],
-      "allowedVersions": "<=1.5"
+      "matchPackageNames": ["releases"],
+      "versioning": "regex:\"appVersion\": (\\d+\\.\\d+\\.\\d+)"
     }
   ],
 
@@ -37,9 +37,8 @@
         "\\s*appVersion:\\s*(?<currentValue>[^\\n]*)"
       ],
       "depNameTemplate": "releases",
-      "extractVersionTemplate": "",
       "packageNameTemplate": "releases",
-      "extractVersionTemplate": "\"version\": \"(appVersion: [^\"]+)\""
+      "extractVersionTemplate": "^(?<version>.*)$"
     }
   ],
   "customDatasources": {
