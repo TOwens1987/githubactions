@@ -39,7 +39,7 @@
       ],
       "depNameTemplate": "releases",
       "packageNameTemplate": "releases",
-      "extractVersionTemplate": "^(?<version>.*)$"
+      "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
   ],
   "customDatasources": {
