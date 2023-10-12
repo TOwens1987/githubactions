@@ -10,6 +10,7 @@
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
       "matchPackageNames": ["releases"],
+      "groupName": "tools",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     }
   ],
