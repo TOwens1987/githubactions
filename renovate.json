@@ -10,7 +10,7 @@
     {
       "matchDatasources": "custom.tool-generic",
       "matchPackageNames": ["releases"],
-      "versioning": "regex:\"appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
+      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     }
   ],
 
