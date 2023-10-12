@@ -38,7 +38,7 @@
         "(?<currentValue>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
       ],
       "depNameTemplate": "DefaultToolName",
-      "packageNameTemplate": "DefaultToolName",
+      "packageNameTemplate": "releases",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
   ],
