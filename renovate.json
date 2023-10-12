@@ -37,8 +37,8 @@
       "matchStrings": [
         "(?<currentValue>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
       ],
-      "depNameTemplate": "releases",
-      "packageNameTemplate": "releases",
+      "depNameTemplate": "DefaultToolName",
+      "packageNameTemplate": "DefaultToolName",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
   ],
