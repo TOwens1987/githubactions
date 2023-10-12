@@ -35,9 +35,8 @@
       "fileMatch": ["toolVersions.adoc$"],
       "datasourceTemplate": "custom.tool-{{depName}}",
       "matchStrings": [
-        "\\s*(?<nameoftool>.*)\\n\\s*(?<currentValue>.*)"
+        "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
-      "depNameTemplate": "{{nameoftool}}",
       "packageNameTemplate": "releases",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
