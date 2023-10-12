@@ -33,7 +33,7 @@
     {
       "customType": "regex",
       "fileMatch": ["toolVersions.adoc$"],
-      "datasourceTemplate": "custom.tool-{{nameoftool}}",
+      "datasourceTemplate": "custom.tool-{{depName}}",
       "matchStrings": [
         "\\s*(?<nameoftool>.*)\\n\\s*(?<currentValue>.*)"
       ],
