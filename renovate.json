@@ -10,7 +10,7 @@
     {
       "matchDatasources": "custom.tool-generic",
       "matchPackageNames": ["releases"],
-      "versioning": "regex:\"appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
+      "versioning": "regex:(?<newValue>\"appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
     }
   ],
 
@@ -35,7 +35,7 @@
       "fileMatch": ["chart.yaml$"],
       "datasourceTemplate": "custom.tool-generic",
       "matchStrings": [
-        "(?<currentValue>appVersion: \\d+\\.\\d+\\.\\d+)"
+        "(?<currentValue>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
       ],
       "depNameTemplate": "releases",
       "packageNameTemplate": "releases",
