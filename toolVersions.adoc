@@ -1,0 +1,4 @@
+Tool1
+appVersion: 0.0.1
+Tool2
+appVersion: 0.0.2
