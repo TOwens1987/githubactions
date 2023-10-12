@@ -1,4 +1,4 @@
 Tool1
-appVersion: 0.0.1
+appVersion: 1.12.3
 Tool2
-appVersion: 0.0.2
+appVersion: 1.12.3
