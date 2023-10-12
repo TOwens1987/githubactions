@@ -1,4 +1,4 @@
 GitVersioning
-appVersion: 0.0.1
+appVersion: 1.12.3
 testtool
 appVersion: 0.0.2
