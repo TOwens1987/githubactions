@@ -33,18 +33,25 @@
     {
       "customType": "regex",
       "fileMatch": ["toolVersions.adoc$"],
-      "datasourceTemplate": "custom.tool-generic",
+      "datasourceTemplate": "custom.tool-{{nameoftool}}",
       "matchStrings": [
-        "(?<currentValue>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))"
+        "\\s*(?<nameoftool>.*)\\n\\s*(?<currentValue>.*)"
       ],
-      "depNameTemplate": "DefaultToolName",
+      "depNameTemplate": "{{nameoftool}}",
       "packageNameTemplate": "releases",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
   ],
   "customDatasources": {
-    "tool-generic": {
+    "tool-GitVersioning": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
+      "format": "plain",
+      "transformTemplates": [
+        "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appVersion:/)}), function($v) {$v})]}\n"
+      ]
+    },
+    "tool-testtool": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/testtool/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
         "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appVersion:/)}), function($v) {$v})]}\n"

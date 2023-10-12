@@ -1,4 +1,4 @@
-Tool1
+GitVersioning
 appVersion: 0.0.1
-Tool2
+testtool
 appVersion: 0.0.2
