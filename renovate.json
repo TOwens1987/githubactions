@@ -44,14 +44,14 @@
   ],
   "customDatasources": {
     "tool-GitVersioning": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/GitVersioning/main/chart.yaml",
+      "defaultRegistryUrlTemplate": "https://github.com/TOwens1987/GitVersioning/blob/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
         "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appVersion:/)}), function($v) {$v})]}\n"
       ]
     },
     "tool-testtool": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/testtool/main/chart.yaml",
+      "defaultRegistryUrlTemplate": "https://github.com/TOwens1987/testtool/blob/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
         "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appVersion:/)}), function($v) {$v})]}\n"
