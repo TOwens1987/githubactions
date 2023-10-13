@@ -7,10 +7,10 @@
   "hostRules": [
     {
       "matchHost": "https://github.com/TOwens1987/testtool",
-      "token": "RenovateToken"
+      "token": "RENOVATE_TOKEN"
     }
   ],
-  
+
   "packageRules": [
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
