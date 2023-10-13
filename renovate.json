@@ -56,7 +56,7 @@
       ]
     },
     "tool-testtool": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/testtool/main/chart.yaml",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/testtool/main/chart.yaml?token=GHSAT0AAAAAACIGR6BYDY7DEHYEHH5Y2ASGZJJWOZQ",
       "format": "plain",
       "transformTemplates": [
         "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appVersion:/)}), function($v) {$v})]}\n"
