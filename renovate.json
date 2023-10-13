@@ -6,7 +6,7 @@
   "enabledManagers": ["regex"],
   "hostRules": [
     {
-      "matchHost": "https://github.com/TOwens1987/testtool",
+      "matchHost": "https://raw.githubusercontent.com/TOwens1987/testtool/main/chart.yaml",
       "token": "RENOVATE_TOKEN"
     }
   ],
