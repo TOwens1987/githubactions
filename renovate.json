@@ -6,7 +6,7 @@
   "enabledManagers": ["regex"],
   "hostRules": [
     {
-      "matchHost": "https://api.github.com/repos/TOwens1987/testtool/contents/chart.yaml?raw=true\n",
+      "matchHost": "https://raw.githubusercontent.com/TOwens1987/testtool/main/chart.yaml",
       "token": "wcFMA/xDdHCJBTolAQ//Ytqm6WyN7z3EfDrpHSxD8u0XhTl3ebFVALM9sMVd2aElrMFAaF9ClRvEDy9NYaKTjKp9G56mWulkDa/w2QnRtI68C4RUaxdb/Yvg9ymT7omsKxQUChMeyh/OypDViNRMRFVi2qHk6kR0To7gcPKtnpdwzgfPtyFozvRbTmn8iD97W5WDUnfwNIzyXeXN3/aSNKRMjkZ+CDEv5Hxa08NUffmPbT6sPwLa4AOwzGehbtpaRhb/T/QfDhHam01C7TLa3G81fYtBFS+YBaEqkGtzIuQIAmUI6h4Gy+Nt0YR7/oe+NMaoeibeH30KU5NN8chJ6hl5di5IxqaRNg6hjlbeipNFDm+qp3lexgWRC01ZIN7b7/BkHmNfd6f94WTWwZmrlofhYl165MnE+n0uGzGCwdA9qcbJJSV91NKCaaPIDWC2x6XGKFS7YNSQ9sC1eEU7HA8QHyKpn19FiBm9FkNCfSYKbW27PXgOPZiv2hYxVGrz3s3Ec0YxrpHuHogTYwosBdGwxqEW/JMt8PA1PIaBzE83SDcU/xpT0mrwug/LqUWtsEsQVVjyhRc/r88oyXLtAocE2TShlY0cwK0xQjCgahuAw+ZRzlXQX9LBAGhSXSFhpA+Fzkz8z40LoNguyf5l/P3fcOl6bjAkizmlI+udLtc2BKpcQQlWUiHgY0ynUE3SeQHS0zHQE/lk25QrFK+AuTksDb4T+24HfL71VcTgIx+bj5kBxH60OrB9Jr4tnpCRIYxeQILXDyrEa/KCIjYlNiIicu7DVuPB8xVtGb+HnlcuLZCb0UOSS9g5aeYnLfFqP9ibNtFKp2ZJeM7KWJ9EOxliCBTXrgP4gl8"
     }
   ],
@@ -56,7 +56,7 @@
       ]
     },
     "tool-testtool": {
-      "defaultRegistryUrlTemplate": "https://api.github.com/repos/TOwens1987/testtool/contents/chart.yaml?raw=true\n",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/testtool/main/chart.yaml",
       "format": "plain",
       "transformTemplates": [
         "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appVersion:/)}), function($v) {$v})]}\n"
