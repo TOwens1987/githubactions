@@ -6,8 +6,8 @@
   "enabledManagers": ["regex"],
   "hostRules": [
     {
-      "matchHost": "https://github.com/TOwens1987/testtool",
-      "token": "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"
+      "matchHost": "https://api.github.com/repos/TOwens1987/testtool/contents/chart.yaml?raw=true\n",
+      "token": "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"
     }
   ],
 
@@ -56,7 +56,7 @@
       ]
     },
     "tool-testtool": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/TOwens1987/testtool/main/chart.yaml?token=GHSAT0AAAAAACIGR6BYDY7DEHYEHH5Y2ASGZJJWOZQ",
+      "defaultRegistryUrlTemplate": "https://api.github.com/repos/TOwens1987/testtool/contents/chart.yaml?raw=true\n",
       "format": "plain",
       "transformTemplates": [
         "{\"releases\": [$map($filter(releases, function($v) {$contains($v.version, /^appVersion:/)}), function($v) {$v})]}\n"
