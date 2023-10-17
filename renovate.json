@@ -9,12 +9,10 @@
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
       "additionalBranchPrefix": "tools-1",
-      "groupName": "tools",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     },
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
-      "groupName": "tools-2",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
       "additionalBranchPrefix": "tools-2"
     }
