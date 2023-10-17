@@ -4,6 +4,7 @@
     "config:base"
   ],
   "enabledManagers": ["regex"],
+  "pruneStaleBranches": false,
 
   "packageRules": [
     {
