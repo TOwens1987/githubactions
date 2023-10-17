@@ -11,6 +11,7 @@
       "matchPackageNames": ["releases"],
       "additionalBranchPrefix": "test-",
       "groupName": "tools",
+      "dependencyDashboardApproval": true,
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     },
     {
