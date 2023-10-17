@@ -8,6 +8,7 @@
   "packageRules": [
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
+      "matchPackageNames": ["ghcr.io/umami-software/umami"],
       "additionalBranchPrefix": "tools-1",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     },
@@ -42,6 +43,16 @@
         "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
       "packageNameTemplate": "releases",
+      "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+    },
+       {
+      "customType": "regex",
+      "fileMatch": ["toolVersions.adoc$"],
+      "datasourceTemplate": "custom.tool-{{depName}}",
+      "matchStrings": [
+        "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
+      ],
+      "packageNameTemplate": "releases-2",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
   ],
