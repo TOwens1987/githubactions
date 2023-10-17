@@ -8,13 +8,15 @@
   "packageRules": [
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
+      "matchPackageNames": ["releases"],
       "additionalBranchPrefix": "tools-1",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     },
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
-      "additionalBranchPrefix": "tools-2"
+      "additionalBranchPrefix": "tools-2",
+      "matchPackageNames": ["releases-2"]
     }
   ],
 
@@ -42,6 +44,16 @@
         "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
       "packageNameTemplate": "releases",
+      "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
+    },
+       {
+      "customType": "regex",
+      "fileMatch": ["toolVersions.adoc$"],
+      "datasourceTemplate": "custom.tool-{{depName}}",
+      "matchStrings": [
+        "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
+      ],
+      "packageNameTemplate": "releases-2",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
   ],
