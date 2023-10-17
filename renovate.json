@@ -9,9 +9,8 @@
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
       "matchPackageNames": ["releases"],
-      "additionalBranchPrefix": "test-",
+      "additionalBranchPrefix": "{{baseDir}}-",
       "groupName": "tools",
-      "dependencyDashboardApproval": true,
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     },
     {
