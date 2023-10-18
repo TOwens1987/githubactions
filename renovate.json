@@ -59,7 +59,7 @@
         "\\s*(?<nameoftool>.*)\\n\\s*(?<currentValue>.*)"
       ],
       "packageNameTemplate": "releases-2",
-      "depNameTemplate": "<<nameoftool>>",
+      "depNameTemplate": "{{nameoftool}}",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     },
        {
@@ -70,7 +70,7 @@
         "\\s*(?<nameoftool>.*)\\n\\s*(?<currentValue>.*)"
       ],
       "packageNameTemplate": "releases-2",
-      "depNameTemplate": "<<nameoftool>> ",
+      "depNameTemplate": "{{nameoftool}} ",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
   ],
