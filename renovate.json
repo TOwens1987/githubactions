@@ -8,7 +8,7 @@
   "packageRules": [
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
-      "matchDepPatterns": ["**"],
+      "matchDepPatterns": [".*"],
       "groupName": "Tools-1",
       "additionalBranchPrefix": "tools-1",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
