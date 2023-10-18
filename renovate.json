@@ -18,6 +18,20 @@
       "additionalBranchPrefix": "tools-2",
       "matchPackageNames": ["releases-2"],
       "groupName": "Tools-2"
+    },
+    {
+      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
+      "additionalBranchSuffix": "tools-3",
+      "matchPackageNames": ["releases4"],
+      "groupName": "dev"
+    },
+
+    {
+      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
+      "matchDatasources": ["github-releases"],
+      "additionalBranchSuffix": "tools-4",
+      "matchPackageNames": ["releases4"],
+      "groupName": "dev-prime"
     }
   ],
 
@@ -33,6 +47,19 @@
       "depNameTemplate": "GitVersioning Update",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
+    },
+
+    {
+      "description": "Update HCL Plugins",
+      "fileMatch": [".hcl$"],
+      "matchStrings": [
+        "\\s*(?<nameoftool>.*):\\n\\s*revision:\\s(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "TOwens1987/{{nameoftool}}",
+      "depNameTemplate": "GitVersioning Update",
+      "extractVersionTemplate": "^(?<version>.*)$",
+      "versioningTemplate": "semver"
     }
   ],
 
@@ -44,7 +71,7 @@
       "matchStrings": [
         "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
-      "packageNameTemplate": "releases",
+      "packageNameTemplate": "releases4",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     },
        {
