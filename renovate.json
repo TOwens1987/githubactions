@@ -4,12 +4,6 @@
     "config:base"
   ],
   "enabledManagers": ["regex"],
-  "hostRules": [
-    {
-      "matchHost": "https://github.com/TOwens1987/testtool",
-      "token": "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"
-    }
-  ],
 
   "packageRules": [
     {
