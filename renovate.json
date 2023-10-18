@@ -19,13 +19,7 @@
       "matchPackageNames": ["releases-2"],
       "groupName": "Tools-2"
     },
-    {
-      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
-      "matchPaths": ["**"],
-      "additionalBranchPrefix": "tools-3",
-      "groupName": "dev"
-    },
-
+    
     {
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
       "matchPaths": ["**/terragrunt.hcl"],
