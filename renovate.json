@@ -7,19 +7,12 @@
 
   "packageRules": [
     {
-      "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
-      "matchDepNames": ["TestingDep"],
-      "groupName": "Tools-1",
-      "additionalBranchPrefix": "tools-1",
-      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
-    },
-    {
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
-      "additionalBranchPrefix": "tools-2",
-      "matchPackageNames": ["releases-2"],
-      "groupName": "Tools-2"
-    },
-
+      "matchPaths": ["**/terragrunt.hcl"],
+      "additionalBranchPrefix": "tools-4",
+      "matchPackageNames": ["TOwens1987/<<nameoftool>>"],
+      "groupName": "dev-prime"
+    }
   ],
 
   "regexManagers": [
@@ -30,7 +23,7 @@
         "\\s*(?<nameoftool>.*):\\n\\s*revision:\\s(?<currentValue>.*)"
       ],
       "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "TOwens1987/",
+      "packageNameTemplate": "TOwens1987/<<nameoftool>>",
       "depNameTemplate": "GitVersioning Update",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
@@ -58,8 +51,7 @@
       "matchStrings": [
         "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
-      "depNameTemplate": "TestingDep",
-      "packageNameTemplate": "releases-2",
+      "packageNameTemplate": "releases4",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     },
        {
