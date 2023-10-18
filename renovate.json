@@ -8,11 +8,17 @@
   "packageRules": [
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
+      "matchPackageNames": ["releases-4"],
       "groupName": "Tools-1",
-      "matchDepNames": ["idontwantthistoshowup-prime"],
       "additionalBranchPrefix": "tools-1",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
-    }
+    },
+    {
+      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
+      "additionalBranchPrefix": "tools-2",
+      "matchPackageNames": ["releases-2"],
+      "groupName": "Tools-2"
+    },
 
   ],
 
@@ -52,8 +58,7 @@
       "matchStrings": [
         "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
-      "packageNameTemplate": "releases-2",
-      "depNameTemplate": "idontwantthistoshowup-prime",
+      "packageNameTemplate": "releases-4",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     },
        {
@@ -64,7 +69,6 @@
         "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
       "packageNameTemplate": "releases-2",
-      "depNameTemplate": "Idontwantthistoshowup2",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     }
   ],
