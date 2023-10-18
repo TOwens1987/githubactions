@@ -8,7 +8,7 @@
   "packageRules": [
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
-      "matchPackageNames": ["releases-4"],
+      "matchDepNames": ["TestingDep"],
       "groupName": "Tools-1",
       "additionalBranchPrefix": "tools-1",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
@@ -30,7 +30,7 @@
         "\\s*(?<nameoftool>.*):\\n\\s*revision:\\s(?<currentValue>.*)"
       ],
       "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "TOwens1987/<<nameoftool>>",
+      "packageNameTemplate": "TOwens1987/",
       "depNameTemplate": "GitVersioning Update",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
@@ -58,7 +58,8 @@
       "matchStrings": [
         "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
-      "packageNameTemplate": "releases-4",
+      "depNameTemplate": "TestingDep",
+      "packageNameTemplate": "releases-2",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     },
        {
