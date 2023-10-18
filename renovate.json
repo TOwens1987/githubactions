@@ -8,6 +8,7 @@
   "packageRules": [
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
+      "matchPaths": ["**"],
       "matchPackageNames": ["releases-2"],
       "groupName": "Tools-1",
       "additionalBranchPrefix": "tools-1",
