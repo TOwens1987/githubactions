@@ -28,7 +28,7 @@
 
     {
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
-      "matchPaths": ["terragrunt.hcl"],
+      "matchPaths": ["**/terragrunt.hcl"],
       "additionalBranchPrefix": "tools-4",
       "matchPackageNames": ["TOwens1987/<<nameoftool>>"],
       "groupName": "dev-prime"
