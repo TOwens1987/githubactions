@@ -8,7 +8,6 @@
   "packageRules": [
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
-      "matchDepPatterns": [".*"],
       "groupName": "Tools-1",
       "matchDepNames": ["idontwantthistoshowup"],
       "additionalBranchPrefix": "tools-1",
