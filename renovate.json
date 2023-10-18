@@ -9,7 +9,7 @@
     {
       "matchDatasources": ["custom.tool-GitVersioning", "custom.tool-testtool"],
       "groupName": "Tools-1",
-      "matchDepNames": ["idontwantthistoshowup"],
+      "matchDepNames": ["idontwantthistoshowup-prime"],
       "additionalBranchPrefix": "tools-1",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     },
@@ -60,7 +60,7 @@
         "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
       "packageNameTemplate": "releases-2",
-      "depNameTemplate": "idontwantthistoshowup",
+      "depNameTemplate": "idontwantthistoshowup-prime",
       "extractVersionTemplate": "(?<version>appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+))$"
     },
        {
