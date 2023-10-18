@@ -57,7 +57,7 @@
       "fileMatch": ["toolVersions.adoc$"],
       "datasourceTemplate": "custom.tool-{{depName}}",
       "matchStrings": [
-        "\\s*(?<nameoftool>.*)\\n\\s*(?<currentValue>.*)"
+        "\\s*(?<depName>.*)\\n\\s*(?<currentValue>.*)"
       ],
       "packageNameTemplate": "releases-2",
       "depNameTemplate": "idontwantthistoshowup",
