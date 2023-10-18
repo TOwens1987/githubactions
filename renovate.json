@@ -12,12 +12,6 @@
       "matchDepNames": ["idontwantthistoshowup-prime"],
       "additionalBranchPrefix": "tools-1",
       "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
-    },
-    {
-      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)",
-      "additionalBranchPrefix": "tools-2",
-      "matchPackagePatterns": ["releases"],
-      "groupName": "Tools-2"
     }
 
   ],
