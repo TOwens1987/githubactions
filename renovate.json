@@ -12,7 +12,7 @@
     },
     {
       "matchDatasources": ["github-tags"],
-      "groupName": "tools",
+      "groupName": "tools-prime",
     }
   ],
 
