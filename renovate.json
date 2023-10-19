@@ -10,13 +10,11 @@
       "matchDatasources": ["github-releases"],
       "matchPackageNames": ["releases"],
       "groupName": "tools",
-      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     },
     {
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["releases"],
       "groupName": "tools",
-      "versioning": "regex:appVersion: (?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
     }
   ],
 
@@ -25,11 +23,11 @@
       "description": "Update HCL Plugins",
       "fileMatch": [".hcl$"],
       "matchStrings": [
-        "revision =\\s\"(?<currentValue>.*\\d)"
+        "\\s*(?<nameoftool>.*):\\n\\s*revision:\\s(?<currentValue>.*).*?"
       ],
       "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "TOwens1987/GitVersioning",
-      "depNameTemplate": "GitVersioning Update",
+      "packageNameTemplate": "TOwens1987/{{nameoftool}}",
+      "depNameTemplate": "{{nameoftool}}",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
     },
@@ -37,11 +35,11 @@
       "description": "Update HCL Plugins",
       "fileMatch": [".hcl$"],
       "matchStrings": [
-        "revision =\\s\"(?<currentValue>.*\\d)"
+        "\\s*(?<nameoftool>.*):\\n\\s*revision:\\s(?<currentValue>.*).*?"
       ],
       "datasourceTemplate": "github-tags",
-      "packageNameTemplate": "TOwens1987/GitVersioning",
-      "depNameTemplate": "GitVersioning Update",
+      "packageNameTemplate": "TOwens1987/{{nameoftool}}",
+      "depNameTemplate": "{{nameoftool}}",
       "extractVersionTemplate": "^(?<version>.*)$",
       "versioningTemplate": "semver"
     }
