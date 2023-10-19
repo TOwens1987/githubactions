@@ -8,12 +8,10 @@
   "packageRules": [
     {
       "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["releases"],
       "groupName": "tools",
     },
     {
       "matchDatasources": ["github-tags"],
-      "matchPackageNames": ["releases"],
       "groupName": "tools",
     }
   ],
