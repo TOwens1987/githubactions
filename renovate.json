@@ -9,10 +9,12 @@
     {
       "matchDatasources": ["github-releases"],
       "groupName": "tools",
+      "separateMajorMinor": "false"
     },
     {
       "matchDatasources": ["github-tags"],
       "groupName": "tools-prime",
+      "separateMajorMinor": "false"
     }
   ],
 
