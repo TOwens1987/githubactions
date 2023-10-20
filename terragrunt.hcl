@@ -1,4 +1,4 @@
 testtool:
-revision: 31.31.31
+revision: 33.33.33
 GitVersioning:
-revision: 11.0.1
+revision: 12.12.12
